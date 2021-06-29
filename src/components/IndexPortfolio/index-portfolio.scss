@@ -1,0 +1,88 @@
+@import "../../scss/theme";
+.mc-name {
+  font-size: 122px;
+  font-weight: bold;
+  width: 554px;
+  & > span {
+    display: block;
+    text-align: right;
+    position: relative;
+    z-index: -1;
+    &::before {
+      content: "l";
+      font-size: 148px;
+      display: block;
+      position: absolute;
+      top: -15px;
+      bottom: 0;
+      color: $magnolia;
+      @media (prefers-color-scheme: dark) {
+        color: $oxford-blue;
+      }
+    }
+    &:nth-child(1) {
+      margin-right: 192px;
+      &::before {
+        right: -4px;
+      }
+    }
+    &:nth-child(2) {
+      margin-right: 129px;
+      &::before {
+        right: 59px;
+      }
+    }
+  }
+}
+.mc-arthery {
+  background-color: $oxford-blue;
+  @media (prefers-color-scheme: dark) {
+    background-color: $magnolia;
+  }
+  position: absolute;
+  top: 0;
+  right: 332px;
+  width: 19px;
+  bottom: 224px;
+  z-index: -2;
+}
+.mc-top-wrapper {
+  display: flex;
+  flex-flow: column-reverse nowrap;
+  gap: 16px;
+  @media (min-width: $breakpoint-desktop) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.mc-about {
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 1.4px;
+}
+i.emoji {
+  color: black;
+  font-style: normal;
+}
+.mc-portfolio-flex {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 64px;
+  .mc-portfolio__body {
+    flex-grow: 1;
+  }
+  .mc-portfolio__timeline {
+    width: 682px;
+    margin-right: -128px;
+    display: grid;
+    grid-template-columns: 1fr 44px 1fr;
+    .mc-timeline {
+      &.mc-timeline--work {
+        grid-column: 1 / 3;
+      }
+      &.mc-timeline--life {
+        grid-column: 2 / 4;
+      }
+    }
+  }
+}

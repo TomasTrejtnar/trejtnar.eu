@@ -1,0 +1,42 @@
+@import "../../scss/theme";
+$footer-gradient-theme: linear-gradient(15deg, $fandango, $neon-blue);
+.mc-footer {
+  background-image: $gradient-light, $footer-gradient-theme;
+  color: $magnolia;
+  padding: 16px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  @media (min-width: $breakpoint-desktop) {
+    padding: 32px 48px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .mc-footer__low {
+    color: rgba($magnolia, 0.7);
+  }
+  .mc-footer--credit {
+    text-decoration: none;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    column-gap: 8px;
+    opacity: 0.5;
+    transition: opacity 240ms $bounce;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    background-image: $gradient-dark, $footer-gradient-theme;
+    color: $oxford-blue;
+    .mc-footer__low {
+      color: rgba($oxford-blue, 0.7);
+    }
+  }
+}

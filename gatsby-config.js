@@ -15,6 +15,20 @@ module.exports = {
     },
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-react-i18next",
+      options: {
+        localeJsonSourceName: `locale`,
+        languages: [`cs`, `en`],
+        defaultLanguage: `cs`,
+        siteUrl: `https://mciesla.cz/`,
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false,
+          },
+        },
+      },
+    },
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
@@ -31,6 +45,14 @@ module.exports = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "locale",
+        path: "./src/locales",
+      },
+      __key: "locale",
     },
   ],
 };

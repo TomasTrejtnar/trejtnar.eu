@@ -1,0 +1,54 @@
+@import "theme";
+@font-face {
+  font-family: $font-name;
+  src: url("./Signika_Negative/SignikaNegative-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: $font-name;
+  src: url("./Signika_Negative/SignikaNegative-Light.ttf");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: $font-name;
+  src: url("./Signika_Negative/SignikaNegative-SemiBold.ttf");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: $font-name;
+  src: url("./Signika_Negative/SignikaNegative-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: unset;
+  min-width: $breakpoint-mobile;
+  min-height: 100vh;
+  position: relative;
+  background-color: $magnolia;
+  font-family: $font;
+}
+main {
+  background-image: $gradient-light, $gradient-theme;
+  background-clip: text;
+  color: transparent;
+  padding: 16px 16px 96px;
+  position: relative;
+  @media (min-width: $breakpoint-desktop) {
+    padding: 32px 128px 128px;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $oxford-blue;
+  }
+  main {
+    background-image: $gradient-dark, $gradient-theme;
+  }
+}

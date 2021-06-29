@@ -1,0 +1,31 @@
+$blush: #ea638c;
+$fandango: #b33c86;
+$magnolia: #ecebf3;
+$oxford-blue: #03012c;
+$neon-blue: #01fdfe;
+
+$gradient-theme: linear-gradient(45deg, $fandango, $neon-blue);
+$gradient-light: linear-gradient(
+  135deg,
+  transparent,
+  $oxford-blue 40%,
+  $oxford-blue 95%,
+  transparent
+);
+$gradient-dark: linear-gradient(
+  135deg,
+  transparent,
+  $magnolia 40%,
+  $magnolia 95%,
+  transparent
+);
+
+$breakpoint-mobile: 320px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1200px;
+$breakpoint-full: 1920px;
+
+$font-name: "Signika Negative";
+$font: $font-name, sans-serif;
+
+$bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
