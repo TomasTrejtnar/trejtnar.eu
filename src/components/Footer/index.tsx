@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 import "./footer.scss";
 
 const Footer: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const mail = i18n.language === "cs" ? "ahoj" : "hello";
   return (
     <footer className="mc-footer">
       <p>
@@ -13,7 +14,8 @@ const Footer: React.FC = () => {
       </p>
       <p>
         <Link to="/">{t("nav.portfolio")}</Link>|
-        <Link to="/projects">{t("nav.projects")}</Link>
+        <Link to="/projects">{t("nav.projects")}</Link>|
+        <a href={`mailto:${mail}@mciesla.cz`}>{mail}@mciesla.cz</a>
       </p>
     </footer>
   );
