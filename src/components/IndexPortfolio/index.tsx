@@ -1,19 +1,68 @@
+import { faCode, faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import "./index-portfolio.scss";
 import TimelineItem from "./TimelineItem";
 
-const IndexPortfolio: React.FC = () => {
+interface IndexPortfolioProps {
+  timeline: {
+    [year: number]: {
+      side: "life" | "work";
+      title: string;
+      body?: string & React.ReactNode;
+    }[];
+  };
+  portfolio: string & React.ReactNode;
+}
+const IndexPortfolio: React.FC<IndexPortfolioProps> = ({
+  timeline,
+  portfolio,
+}) => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="mc-top-wrapper">
-        <p className="mc-about">
-          Student <i className="emoji">👨🏼‍🎓</i> | Programmer{" "}
-          <i className="emoji">👨🏼‍💻</i> | Computer person{" "}
-          <i className="emoji">🖥</i> | Science, space &amp; technology
-          enthusiast <i className="emoji">🚀</i> | Used-to-be dancer{" "}
-          <i className="emoji">🕺🏼</i>
-        </p>
+        <div className="mc-about">
+          <p>{t("title.about.text")}</p>
+          <p>
+            <FontAwesomeIcon icon={faGlobe} />
+            {["cs", "en"].map((lang, i) => (
+              <React.Fragment key={i}>
+                {i > 0 && ", "}
+                <span className="mc-lang">
+                  {t(`title.about.languages.${lang}.name`)}
+                  <span
+                    className="mc-lang__level"
+                    dangerouslySetInnerHTML={{
+                      __html: t(`title.about.languages.${lang}.level`),
+                    }}
+                  />
+                </span>
+              </React.Fragment>
+            ))}
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faCode} />
+            {["net", "react", "php", "java"].map((lang, i) => (
+              <React.Fragment key={i}>
+                {i > 0 && ", "}
+                <span className="mc-lang">
+                  {t(`title.about.frameworks.${lang}.name`)}
+                  <span
+                    className="mc-lang__level"
+                    dangerouslySetInnerHTML={{
+                      __html: t(`title.about.frameworks.${lang}.level`),
+                    }}
+                  />
+                </span>
+              </React.Fragment>
+            ))}
+            {" " + t("title.about.frameworks.etc")}
+          </p>
+        </div>
         <h1 className="mc-name">
           <span>Michal</span>
           <span>Ciesla</span>
@@ -21,52 +70,18 @@ const IndexPortfolio: React.FC = () => {
       </div>
       <div className="mc-arthery" />
       <div className="mc-portfolio-flex">
-        <div className="mc-portfolio__body">Hello</div>
+        <div className="mc-portfolio__body">
+          <MDXRenderer>{portfolio}</MDXRenderer>
+        </div>
         <div className="mc-portfolio__timeline">
-          <TimelineItem side="life" year={1999} title="Born" />
-          <TimelineItem side="life" year={2006} title="Primary School" />
-          <TimelineItem side="life" year={2010} title="Started dancing" />
-          <TimelineItem
-            side="life"
-            year={2011}
-            title="Found out about Minecraft"
-          />
-          <TimelineItem side="work" year={2013} title="First playing with Java">
-            Because Minecraft Mods seemed cool
-          </TimelineItem>
-          <TimelineItem
-            side="life"
-            year={2014}
-            title="Secondary Technical School"
-          />
-          <TimelineItem
-            side="work"
-            year={2015}
-            title="First professional experience"
-          >
-            <ul>
-              <li>Unpaid Internship</li>
-              <li>
-                Joined <strong>Microsoft STC</strong>
-              </li>
-              <li>First complex public web application</li>
-            </ul>
-          </TimelineItem>
-          <TimelineItem side="work" year={2016} title="First part time job" />
-          <TimelineItem side="life" year={2018} title="College" />
-          <TimelineItem
-            side="work"
-            year={2020}
-            title="First commisioned application"
-          />
-          <TimelineItem
-            side="work"
-            year={2021}
-            title="First Developer part-time job"
-          />
-          <TimelineItem side="life" year={2021} title="Bachelor's degree">
-            System Engineering
-          </TimelineItem>
+          {Object.keys(timeline).map((y) => {
+            const year = parseInt(y);
+            return timeline[year].map((item) => (
+              <TimelineItem side={item.side} year={year} title={item.title}>
+                {item.body && <MDXRenderer>{item.body}</MDXRenderer>}
+              </TimelineItem>
+            ));
+          })}
         </div>
       </div>
     </>

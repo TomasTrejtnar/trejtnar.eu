@@ -1,5 +1,5 @@
 @import "../../scss/theme";
-$for-items: 3;
+$for-items: 4;
 $item-size: 48px;
 .mc-nav {
   position: fixed;
@@ -22,9 +22,9 @@ $item-size: 48px;
     border: none;
     text-decoration: none;
     padding: 8px;
-    color: $fandango;
+    color: $oxford-blue;
     &:hover {
-      color: $blush;
+      color: $fandango;
     }
     &:nth-child(1) {
       opacity: 0;
@@ -45,23 +45,56 @@ $item-size: 48px;
       height: 100%;
     }
     @media (prefers-color-scheme: dark) {
-      color: $blush;
+      color: $magnolia;
       &:hover {
-        color: $fandango;
+        color: $blush;
       }
     }
   }
-  &.mc-nav--scrolled .mc-nav__item {
-    right: 0;
-    &:nth-child(1) {
-      opacity: 1;
-      transition: top 240ms $bounce, right 240ms $bounce, color 240ms $bounce,
-        opacity 240ms $bounce 120ms;
-    }
-    @for $i from 1 to $for-items {
-      &:nth-child(#{$i + 1}) {
-        top: #{($for-items - $i) * $item-size};
+  .mc-nav__languages {
+    position: absolute;
+    top: 0;
+    right: #{$for-items * $item-size};
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    width: auto;
+    height: $item-size;
+    pointer-events: all;
+    align-items: center;
+    transition: right 240ms $bounce;
+    & > a {
+      color: $oxford-blue;
+      text-decoration: none;
+      transition: color 240ms $bounce;
+      &:hover {
+        color: $fandango;
       }
+      @media (prefers-color-scheme: dark) {
+        color: $magnolia;
+        &:hover {
+          color: $blush;
+        }
+      }
+    }
+  }
+  &.mc-nav--scrolled {
+    .mc-nav__item {
+      right: 0;
+      &:nth-child(1) {
+        opacity: 1;
+        transition: top 240ms $bounce, right 240ms $bounce, color 240ms $bounce,
+          opacity 240ms $bounce 120ms;
+      }
+      @for $i from 1 to $for-items {
+        &:nth-child(#{$i + 1}) {
+          top: #{($for-items - $i) * $item-size};
+        }
+      }
+    }
+    .mc-nav__languages {
+      left: unset;
+      right: #{2 * $item-size};
     }
   }
 }

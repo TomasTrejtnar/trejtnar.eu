@@ -12,7 +12,10 @@ const TimelineItem: React.FC<React.PropsWithChildren<TimelineItemProps>> = ({
   children,
 }) => {
   return (
-    <div className={`mc-timeline mc-timeline--${side}`}>
+    <div
+      className={`mc-timeline mc-timeline--${side}`}
+      style={{ gridRow: year - 1999 }}
+    >
       <div className="mc-timeline__year">{year}</div>
       <div className="mc-timeline__body">
         <div className="mc-timeline__title">{title}</div>

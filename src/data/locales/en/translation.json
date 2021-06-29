@@ -1,0 +1,46 @@
+{
+  "title": {
+    "about": {
+      "text": "Student | Developer | IT Guy | Science, technology and space enthusiast | Former dancer",
+      "languages": {
+        "cs": {
+          "name": "Czech",
+          "level": "native"
+        },
+        "en": {
+          "name": "English",
+          "level": "&ge; B2"
+        }
+      },
+      "frameworks": {
+        "net": {
+          "name": ".NET",
+          "level": "primarily"
+        },
+        "react": {
+          "name": "React",
+          "level": "primarily"
+        },
+        "php": {
+          "name": "PHP",
+          "level": "a lot"
+        },
+        "java": {
+          "name": "Java",
+          "level": "in self-defense"
+        },
+        "etc": "and more"
+      }
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "nav": {
+    "portfolio": "Portfolio",
+    "projects": "Projects",
+    "up": "Back To Top",
+    "github": "GitHub Profile",
+    "twitter": "Twitter Page"
+  }
+}

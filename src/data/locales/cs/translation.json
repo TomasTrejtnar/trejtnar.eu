@@ -1,0 +1,46 @@
+{
+  "title": {
+    "about": {
+      "text": "Student | Vývojář | Ajťák | Nadšenec do vědy, technologií a vesmíru | Bývalý tanečník",
+      "languages": {
+        "cs": {
+          "name": "čeština",
+          "level": "rodilý mluvčí"
+        },
+        "en": {
+          "name": "angličtina",
+          "level": "&ge; B2"
+        }
+      },
+      "frameworks": {
+        "net": {
+          "name": ".NET",
+          "level": "primárně"
+        },
+        "react": {
+          "name": "React",
+          "level": "primárně"
+        },
+        "php": {
+          "name": "PHP",
+          "level": "hodně"
+        },
+        "java": {
+          "name": "Java",
+          "level": "v sebeobraně"
+        },
+        "etc": "a další"
+      }
+    }
+  },
+  "footer": {
+    "rights": "Všechna práva vyhrazena."
+  },
+  "nav": {
+    "portfolio": "Portfolio",
+    "projects": "Projekty",
+    "up": "Nahoru",
+    "github": "GitHub profil",
+    "twitter": "Twitter profil"
+  }
+}

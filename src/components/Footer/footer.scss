@@ -17,6 +17,11 @@ $footer-gradient-theme: linear-gradient(15deg, $fandango, $neon-blue);
     flex-direction: row;
     justify-content: space-between;
   }
+  a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0 8px;
+  }
   .mc-footer__low {
     color: rgba($magnolia, 0.7);
   }

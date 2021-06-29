@@ -40,6 +40,39 @@ main {
   color: transparent;
   padding: 16px 16px 96px;
   position: relative;
+  max-width: $breakpoint-desktop;
+  margin: 0 auto;
+  a {
+    color: inherit;
+    position: relative;
+    padding: 2px 0 0;
+    &:not(.nofx) {
+      white-space: nowrap;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 2px;
+        height: 1px;
+        background-image: $gradient-theme;
+        transition-property: height, opacity, bottom, left, right;
+        transition-timing-function: $bounce;
+        transition-duration: 240ms;
+        opacity: 0.9;
+        z-index: -1;
+        border-radius: 4px;
+      }
+      &:hover::before {
+        height: calc(100% + 4px);
+        opacity: 0.3;
+        bottom: -2px;
+        left: -4px;
+        right: -4px;
+      }
+    }
+  }
   @media (min-width: $breakpoint-desktop) {
     padding: 32px 128px 128px;
   }

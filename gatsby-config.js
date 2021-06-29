@@ -18,14 +18,15 @@ module.exports = {
     {
       resolve: "gatsby-plugin-react-i18next",
       options: {
-        localeJsonSourceName: `locale`,
-        languages: [`cs`, `en`],
-        defaultLanguage: `cs`,
-        siteUrl: `https://mciesla.cz/`,
+        languages: ["cs", "en"],
+        defaultLanguage: "cs",
+        siteUrl: "https://mciesla.cz/",
         i18nextOptions: {
           interpolation: {
             escapeValue: false,
           },
+          keySeparator: ".",
+          debug: true,
         },
       },
     },
@@ -41,6 +42,14 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
+        name: "locale",
+        path: `./src/data/locales`,
+      },
+      __key: "locale",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
         name: "pages",
         path: "./src/pages/",
       },
@@ -49,10 +58,26 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "locale",
-        path: "./src/locales",
+        name: "projects",
+        path: "./src/data/projects/",
       },
-      __key: "locale",
+      __key: "projects",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "timeline",
+        path: "./src/data/timeline/",
+      },
+      __key: "timeline",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "portfolio",
+        path: "./src/data/",
+      },
+      __key: "portfolio",
     },
   ],
 };
