@@ -12,6 +12,7 @@ $footer-gradient-theme: linear-gradient(15deg, $fandango, $neon-blue);
   bottom: 0;
   left: 0;
   right: 0;
+  text-align: center;
   @media (min-width: $breakpoint-desktop) {
     padding: 32px 48px;
     flex-direction: row;

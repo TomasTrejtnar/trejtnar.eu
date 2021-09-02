@@ -1,17 +1,30 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
+import { useLayoutEffect } from "react";
+import { Link, useTranslation } from "gatsby-plugin-react-i18next";
+import Country from "flagit";
 
 import "./nav.scss";
 import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { useLayoutEffect } from "react";
-import { useTranslation } from "react-i18next";
-import { Link } from "gatsby-plugin-react-i18next";
 
-const Languages = {
-  cs: "Čeština",
-  en: "English",
-};
+const Languages: { code: string; name: string; country: string }[] = [
+  {
+    code: "cs",
+    name: "Čeština",
+    country: "CZ",
+  },
+  {
+    code: "en",
+    name: "English",
+    country: "US",
+  },
+  // {
+  //   code: "jp",
+  //   name: "日本語",
+  //   country: "JP",
+  // },
+];
 
 const Nav: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -40,7 +53,7 @@ const Nav: React.FC = () => {
         href="https://twitter.com/ciesla_michal"
         target="_blank"
         rel="noopener noreferrer"
-        title={t("nav.github")}
+        title={t("nav.twitter")}
       >
         <FontAwesomeIcon icon={faTwitter} />
       </a>
@@ -49,16 +62,16 @@ const Nav: React.FC = () => {
         href="https://github.com/Akimayo"
         target="_blank"
         rel="noopener noreferrer"
-        title={t("nav.twitter")}
+        title={t("nav.github")}
       >
         <FontAwesomeIcon icon={faGithub} />
       </a>
       <div className="mc-nav__languages">
-        {Object.keys(Languages).map(
-          (lang) =>
-            i18n.language === lang || (
-              <Link to="/" language={lang} key={lang}>
-                {Languages[lang]}
+        {Languages.map(
+          ({ code, name, country }) =>
+            i18n.language === code || (
+              <Link to="/" language={code} title={name} key={code}>
+                <Country countryShort={country} size={24} alt={name} />
               </Link>
             )
         )}

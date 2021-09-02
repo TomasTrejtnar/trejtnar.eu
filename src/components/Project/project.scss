@@ -1,0 +1,135 @@
+@import "../../scss/theme";
+.mc-project {
+  border-radius: 4px;
+  border-top: 1px solid $oxford-blue;
+  box-shadow: 0 0 2px $oxford-blue;
+  margin: 48px 2px 2px;
+  padding: 36px 16px 16px;
+  .mc-project__title {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    .mc-project__title-name {
+      margin: unset;
+      font-size: 24px;
+    }
+    :last-child {
+      margin-left: auto;
+    }
+  }
+  .mc-project__logo-wrapper {
+    position: relative;
+    .mc-project__logo {
+      position: absolute;
+      left: 0px;
+      top: -66px;
+    }
+  }
+  .mc-project__body {
+    font-size: 18px;
+    blockquote {
+      margin: 1em 20px;
+    }
+  }
+  .mc-project__tags {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 8px;
+    margin-top: 8px;
+    .mc-project__tags-tag {
+      display: inline-block;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background-color: $blush;
+      color: $magnolia;
+    }
+  }
+  .mc-project__info {
+    font-size: 16px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 8px;
+    justify-content: space-between;
+    & > * {
+      flex: 1 1 auto;
+    }
+  }
+  &.mc-project--full {
+    padding: 64px 16px 16px;
+    margin-top: 128px;
+    .mc-project__title {
+      justify-content: flex-start;
+      .mc-project__title-anchor {
+        color: transparent;
+        margin-left: -24px;
+        margin-right: 8px;
+        transition: color 240ms $bounce;
+      }
+      &:hover .mc-project__title-anchor {
+        color: $oxford-blue;
+        @media (prefers-color-scheme: dark) {
+          color: $magnolia;
+        }
+      }
+      .mc-project__title-name {
+        font-size: 36px;
+      }
+      :last-child {
+        margin-left: unset;
+      }
+    }
+    .mc-project__body {
+      font-size: 20px;
+    }
+    .mc-project__logo-wrapper .mc-project__logo {
+      left: 0;
+      top: -128px;
+    }
+  }
+  @media (min-width: $breakpoint-tablet) {
+    margin: 48px 0 0 32px;
+    padding: 16px 16px 16px 48px;
+    .mc-project__logo-wrapper {
+      .mc-project__logo {
+        left: -80px;
+        top: -48px;
+      }
+    }
+    .mc-project__body {
+      font-size: 20px;
+      blockquote {
+        margin: 1em 40px;
+      }
+    }
+    .mc-project__info {
+      font-size: 18px;
+      &::after {
+        display: block;
+        content: "";
+      }
+    }
+    &.mc-project--full {
+      padding: 32px 32px 32px 128px;
+      .mc-project__title .mc-project__title-name {
+        font-size: 48px;
+      }
+      .mc-project__logo-wrapper .mc-project__logo {
+        left: -160px;
+        top: -64px;
+      }
+      .mc-project__body {
+        font-size: 22px;
+      }
+    }
+    @media (prefers-color-scheme: dark) {
+      border-top-color: $magnolia;
+      box-shadow: 0 0 2px $magnolia;
+    }
+  }
+}
+.mc-project-list {
+  margin-bottom: 72px;
+}

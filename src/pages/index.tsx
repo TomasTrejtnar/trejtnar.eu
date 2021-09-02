@@ -1,9 +1,10 @@
 import React from "react";
+import { graphql } from "gatsby";
+
 import Layout from "../components/Layout";
 import IndexPortfolio from "../components/IndexPortfolio";
-
 import "../scss/main.scss";
-import { graphql } from "gatsby";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 
 interface IndexPageData {
   data: {
@@ -22,9 +23,36 @@ interface IndexPageData {
     portfolio: {
       body: string & React.ReactNode;
     };
+    projects: {
+      edges: {
+        node: {
+          frontmatter: {
+            wip: boolean;
+            year: number;
+            title: string;
+            logo: {
+              childImageSharp: {
+                gatsbyImageData: IGatsbyImageData;
+              };
+            };
+            active: boolean;
+            tags: string[];
+          };
+          excerpt: string;
+          body: string & React.ReactNode;
+          slug: string;
+        };
+      }[];
+    };
   };
 }
 const IndexPage: React.FC<IndexPageData> = ({ data }) => {
+  const currentProject = data.projects.edges
+      .filter(({ node }) => node.frontmatter.wip)
+      .shift(),
+    featuredProject = data.projects.edges
+      .filter(({ node }) => !node.frontmatter.wip)
+      .shift();
   return (
     <Layout>
       <IndexPortfolio
@@ -40,6 +68,20 @@ const IndexPage: React.FC<IndexPageData> = ({ data }) => {
           return { ...set, [item.node.frontmatter.year]: modifiedYearSet };
         }, {})}
         portfolio={data.portfolio.body}
+        currentProject={
+          currentProject && {
+            ...currentProject.node.frontmatter,
+            excerpt: currentProject.node.excerpt,
+            slug: currentProject.node.slug,
+          }
+        }
+        featuredProject={
+          featuredProject && {
+            ...featuredProject.node.frontmatter,
+            excerpt: featuredProject.node.excerpt,
+            slug: featuredProject.node.slug,
+          }
+        }
       />
     </Layout>
   );
@@ -58,7 +100,10 @@ export const query = graphql`
       }
     }
     timeline: allMdx(
-      filter: { frontmatter: { lang: { eq: $language } }, slug: {regex: "/^\\d{4}-.+\\.[a-z]{2}/"} }
+      filter: {
+        slug: { glob: "timeline/*.*" }
+        frontmatter: { lang: { eq: $language } }
+      }
       sort: { fields: frontmatter___year }
     ) {
       edges {
@@ -72,8 +117,44 @@ export const query = graphql`
         }
       }
     }
-    portfolio: mdx(frontmatter: {lang: {eq: $language}, title: {eq: "portfolio"}}) {
+    portfolio: mdx(
+      frontmatter: { lang: { eq: $language } }
+      fileAbsolutePath: { glob: "**/data/portfolio.*.mdx" }
+    ) {
       body
+    }
+    projects: allMdx(
+      filter: {
+        slug: { glob: "projects/*.*" }
+        frontmatter: { lang: { eq: $language }, active: { eq: true } }
+      }
+      sort: { fields: frontmatter___year, order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            wip
+            year
+            title
+            logo {
+              childImageSharp {
+                gatsbyImageData(
+                  height: 64
+                  width: 64
+                  placeholder: BLURRED
+                  transformOptions: { fit: CONTAIN }
+                  backgroundColor: "transparent"
+                  quality: 100
+                )
+              }
+            }
+            active
+            tags
+          }
+          excerpt(pruneLength: 200)
+          slug
+        }
+      }
     }
   }
 `;

@@ -1,13 +1,19 @@
 @import "../../scss/theme";
 .mc-name {
-  font-size: 64px;
+  font-size: 72px;
+  margin-bottom: 0;
   font-weight: bold;
+  grid-area: 1 / 1;
   & > span {
     display: block;
     text-align: right;
+  }
+  &.mc-name--artery-break > span {
     position: relative;
     z-index: -1;
+    visibility: hidden;
     &::before {
+      visibility: visible;
       content: "l";
       font-size: 148px;
       display: block;
@@ -21,7 +27,8 @@
     }
   }
   @media (min-width: $breakpoint-tablet) {
-    font-size: 96px;
+    font-size: 108px;
+    margin: 82px 0;
   }
   @media (min-width: $breakpoint-desktop) {
     font-size: 122px;
@@ -29,20 +36,28 @@
     & > span {
       &:nth-child(1) {
         margin-right: 192px;
-        &::before {
-          right: -4px;
-        }
       }
       &:nth-child(2) {
         margin-right: 129px;
-        &::before {
-          right: 59px;
-        }
+      }
+    }
+    &.mc-name--artery-break > span {
+      &:nth-child(1)::before {
+        right: -4px;
+      }
+      &:nth-child(2)::before {
+        right: 59px;
       }
     }
   }
+  @media (prefers-color-scheme: dark) {
+    color: $magnolia;
+  }
 }
-.mc-arthery {
+.mc-name--grid {
+  display: grid;
+}
+.mc-artery {
   background-color: $oxford-blue;
   @media (prefers-color-scheme: dark) {
     background-color: $magnolia;
@@ -91,6 +106,13 @@
   font-size: 24px;
   line-height: 30px;
   letter-spacing: 1.4px;
+  h1 {
+    white-space: nowrap;
+    font-size: 36px;
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 48px;
+    }
+  }
   svg {
     color: $oxford-blue;
     padding-right: 8px;
@@ -99,24 +121,29 @@
       color: $magnolia;
     }
   }
+  p:not(:first-child) {
+    line-height: 48px;
+  }
   .mc-lang {
-    position: relative;
-    p {
-      white-space: nowrap;
-    }
+    display: inline-flex;
+    flex-flow: column nowrap;
+    height: 44px;
     .mc-lang__level {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -18px;
       font-size: 12px;
       letter-spacing: 1px;
       color: $oxford-blue;
       white-space: nowrap;
+      line-height: 0;
       @media (prefers-color-scheme: dark) {
         color: $magnolia;
       }
     }
+  }
+  @media (min-width: $breakpoint-tablet) {
+    margin: 0 10vw;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    margin: initial;
   }
 }
 i.emoji {
@@ -124,18 +151,35 @@ i.emoji {
   font-style: normal;
 }
 .mc-portfolio-flex {
+  display: flex;
   flex-flow: row nowrap;
   margin-bottom: 64px;
   .mc-portfolio__body {
     flex-grow: 1;
     font-size: 20px;
+    overflow-x: hidden;
+    .mc-portfolio__body-about {
+      &:not(.mc-portfolio__body-about-more) {
+        h3 ~ * {
+          display: none;
+          &:nth-of-type(8),
+          &:nth-of-type(9) {
+            display: block;
+          }
+        }
+      }
+    }
+    @media (min-width: $breakpoint-tablet) {
+      overflow-x: unset;
+    }
   }
   .mc-portfolio__timeline {
     width: 682px;
     margin-right: -128px;
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 44px 1fr;
     row-gap: 32px;
+    flex-shrink: 0;
     .mc-timeline {
       display: flex;
       flex-flow: row nowrap;
@@ -159,10 +203,12 @@ i.emoji {
         background-color: $magnolia;
         color: $oxford-blue;
         margin: 0 -4px;
+        box-shadow: 0 0 1px $oxford-blue;
         @media (prefers-color-scheme: dark) {
           color: $magnolia;
           border-color: $magnolia;
           background-color: $oxford-blue;
+          box-shadow: 0 0 1px $magnolia;
         }
       }
       .mc-timeline__body {
@@ -177,9 +223,15 @@ i.emoji {
         }
       }
     }
+    @media (min-width: $breakpoint-desktop) {
+      display: grid;
+    }
+    @media (prefers-color-scheme: dark) {
+      color: $magnolia;
+    }
   }
+}
+.ahoj,
+.hello {
   display: none;
-  @media (min-width: $breakpoint-desktop) {
-    display: flex;
-  }
 }

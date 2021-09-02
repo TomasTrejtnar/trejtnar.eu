@@ -1,7 +1,7 @@
 {
   "title": {
     "about": {
-      "text": "Student | Vývojář | Ajťák | Nadšenec do vědy, technologií a vesmíru | Bývalý tanečník",
+      "text": "Student | Vývojář | Ajťák | Nadšenec do vědy, technologií a vesmíru | Tanečník a lektor",
       "languages": {
         "cs": {
           "name": "čeština",
@@ -37,10 +37,41 @@
     "rights": "Všechna práva vyhrazena."
   },
   "nav": {
-    "portfolio": "Portfolio",
+    "portfolio": "Domů",
     "projects": "Projekty",
     "up": "Nahoru",
     "github": "GitHub profil",
     "twitter": "Twitter profil"
+  },
+  "body": {
+    "about": "O mně",
+    "projects": {
+      "current": {
+        "title": "Právě pracuji na:",
+        "p": "Práce programátora nikdy nekončí, obzvláště, pokud je to programátorovým koníčkem"
+      },
+      "featured": {
+        "title": "Podívejte se:",
+        "p": "Nejnovější aktivní projekt. Jistě zajímavý kousek, na který stojí za to se podívat!"
+      },
+      "viewMore": "Zobrazit více"
+    },
+    "readMore": "Číst dále"
+  },
+  "projects": {
+    "sub": "Aplikace | Webové stránky | Pidi-služby | Ztráty času",
+    "year": "Rok: {{year}}",
+    "status": {
+      "": "Stav: {{status}}",
+      "active": "Aktivní",
+      "wip": "Ve vývoji",
+      "retired": "Ukončený",
+      "abandoned": "Opuštěný"
+    }
+  },
+  "404": {
+    "notFound": "Tato stránka neexistuje",
+    "back": "Přejít na domovskou stránku",
+    "old": "Zkusit najít na"
   }
 }

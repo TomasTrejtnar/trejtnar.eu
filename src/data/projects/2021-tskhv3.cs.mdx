@@ -1,0 +1,22 @@
+---
+title: "Web Tanečního studia Kamily Hlaváčikové - v3"
+year: 2021
+lang: "cs"
+active: true
+wip: true
+logo: "../../images/tskh-logo.png"
+tags:
+  - "Web"
+  - "Large-Scale"
+  - "PHP"
+---
+
+Třetí verzi webu Tanečního studia jsem chtěl využít k celkové modernizaci jak vizuální identity, tak celé architektury aplikace.
+
+Nový grafický design by měl celou vizuální identitu posunout na modernější styl a zjednodušit ji, jelikož ta předchozí byla problematická při tisk na např. propagační materiály.
+
+Nová architektura odděluje front-end a back-end; front-end je vytvořen s pomocí <a href="https://gatsbyjs.com" target="_blank" rel="noopener noreferrer">Gatsby</a> a komunikuje s API na PHP <a href="https://slimframework.com" target="_blank" rel="noopener noreferrer">Slim</a> back-endu pomocí GraphQL. Toto oddělení mne nutí dodržovat správné způsoby návrhu API a zároveň poskytuje sílu frameworku <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">React</a> a balíčků ekosystému <a href="https://npmjs.com" target="_blank" rel="noopener noreferrer">NPM</a>.
+
+Nově oproti druhé verzi poskytuje šifrování osobních údajů, robustní architekturu a cache vybraných požadavků, což dohromady zlepšuje bezpečnost i výkon webvé aplikace.
+
+Velmi upřímně se nemohu dočkat, až budu mít připravený backend a budu moci začít vytvářet první betaverze třetí iterace webu Tanečního studia. To však kvůli ohromnému rozsahu datové vrstvy bude ještě nejakou chvíli trvat.

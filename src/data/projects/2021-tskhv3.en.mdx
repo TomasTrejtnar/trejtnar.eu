@@ -1,0 +1,22 @@
+---
+title: "Tanečního studia Kamily Hlaváčikové - v3"
+year: 2021
+lang: "en"
+active: true
+wip: true
+logo: "../../images/tskh-logo.png"
+tags:
+  - "Website"
+  - "Large-Scale"
+  - "PHP"
+---
+
+The goal of this third version of the website is to give it a new visual design and to singificantly upgrade the architecture of the underlying code.
+
+This new design should be more modern-looking, simpler and easier to work with - the original design was hard to work with when for example making foam cutouts for decoration or promotional material.
+
+From the code side of things, the new architecture separates front-end and back-end; front-end being created using <a href="https://gatsbyjs.com" target="_blank" rel="noopener noreferrer">Gatsby</a> and communicating with an API through GraphQL , the back-end being written in PHP using the <a href="https://slimframework.com" target="_blank" rel="noopener noreferrer">Slim</a> framework. This separation forces me to abide by the correct ways to structure an API while at the same time giving me access to the strengths of <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">React</a> and its <a href="https://npmjs.com" target="_blank" rel="noopener noreferrer">NPM</a> package ecosystem.
+
+This version also introduces encryption of personal data, robust and easily expandable architecture and caching of frequent requests, which together improve security and performance of the application.
+
+In all honesty, I can't wait to have the backend ready and to start work on the first beta versions of the third iteration of this web application. This won't be easy though, thanks to the massive footprint of the data layer.

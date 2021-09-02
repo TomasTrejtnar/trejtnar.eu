@@ -1,7 +1,7 @@
 {
   "title": {
     "about": {
-      "text": "Student | Developer | IT Guy | Science, technology and space enthusiast | Former dancer",
+      "text": "Student | Developer | IT guy | Science, technology and space enthusiast | Dancer and lecturer",
       "languages": {
         "cs": {
           "name": "Czech",
@@ -37,10 +37,41 @@
     "rights": "All rights reserved."
   },
   "nav": {
-    "portfolio": "Portfolio",
+    "portfolio": "Home",
     "projects": "Projects",
     "up": "Back To Top",
     "github": "GitHub Profile",
     "twitter": "Twitter Page"
+  },
+  "body": {
+    "about": "About me",
+    "projects": {
+      "current": {
+        "title": "Working on:",
+        "p": "The coding never stops, especially when it's also a hobby"
+      },
+      "featured": {
+        "title": "Take a look:",
+        "p": "This is my latest finished project. Be sure to take a look - it's undoubtedly something worth your attention"
+      },
+      "viewMore": "View More"
+    },
+    "readMore": "Read More"
+  },
+  "projects": {
+    "sub": "Apps | Websites | Tiny services | Wastes of time",
+    "year": "Year: {{year}}",
+    "status": {
+      "": "Status: {{status}}",
+      "active": "Active",
+      "wip": "Work in Progress",
+      "retired": "Retired",
+      "abandoned": "Abandoned"
+    }
+  },
+  "404": {
+    "notFound": "The requested page doesn't exist",
+    "back": "Go to homepage",
+    "old": "Try finding at"
   }
 }

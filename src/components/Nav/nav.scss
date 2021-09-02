@@ -62,7 +62,11 @@ $item-size: 48px;
     height: $item-size;
     pointer-events: all;
     align-items: center;
-    transition: right 240ms $bounce;
+    column-gap: 8px;
+    transition: right 240ms $bounce, opacity 240ms $bounce,
+      visibility 240ms ease 0ms;
+    opacity: 1;
+    visibility: visible;
     & > a {
       color: $oxford-blue;
       text-decoration: none;
@@ -95,6 +99,10 @@ $item-size: 48px;
     .mc-nav__languages {
       left: unset;
       right: #{2 * $item-size};
+      transition: right 240ms $bounce, opacity 240ms $bounce,
+        visibility 240ms ease 0ms;
+      opacity: 0;
+      visibility: collapse;
     }
   }
 }

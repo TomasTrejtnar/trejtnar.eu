@@ -1,10 +1,37 @@
-import { graphql } from "gatsby";
-import { Link } from "gatsby-plugin-react-i18next";
 import React from "react";
-import { useTranslation } from "react-i18next";
-import Layout from "../components/Layout";
+import { graphql } from "gatsby";
+import { Link, useTranslation } from "gatsby-plugin-react-i18next";
 
-const Projects: React.FC = () => {
+import Layout from "../components/Layout";
+import { IGatsbyImageData } from "gatsby-plugin-image";
+import Project from "../components/Project";
+
+interface ProjectsPageData {
+  data: {
+    projects: {
+      edges: {
+        node: {
+          frontmatter: {
+            wip: boolean;
+            year: number;
+            title: string;
+            logo: {
+              childImageSharp: {
+                gatsbyImageData: IGatsbyImageData;
+              };
+            };
+            active: boolean;
+            tags: string[];
+          };
+          body: string & React.ReactNode;
+          slug: string;
+        };
+      }[];
+    };
+  };
+}
+
+const Projects: React.FC<ProjectsPageData> = ({ data }) => {
   const { t } = useTranslation();
   return (
     <Layout>
@@ -12,12 +39,17 @@ const Projects: React.FC = () => {
         <h2 className="mc-name">{t("nav.projects")}</h2>
         <div className="mc-about">
           <h1>
-            <Link to="/">
-              Michal Ciesla
-            </Link>
+            <Link to="/">Michal Ciesla</Link>
           </h1>
-          <p>Aplikace | Webové stránky | Pidi-služby | Ztráty času</p>
+          <p>{t("projects.sub")}</p>
         </div>
+      </div>
+      <div className="mc-project-list">
+        {data.projects.edges.map((p) => (
+          <Project
+            {...{ ...p.node.frontmatter, body: p.node.body, slug: p.node.slug }}
+          />
+        ))}
       </div>
     </Layout>
   );
@@ -31,6 +63,40 @@ export const query = graphql`
           ns
           data
           language
+        }
+      }
+    }
+    projects: allMdx(
+      filter: {
+        slug: { glob: "projects/*.*" }
+        frontmatter: { lang: { eq: $language } }
+      }
+      sort: { fields: frontmatter___year, order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            wip
+            year
+            title
+            logo {
+              childImageSharp {
+                gatsbyImageData(
+                  height: 128
+                  width: 128
+                  placeholder: BLURRED
+                  transformOptions: { fit: CONTAIN }
+                  backgroundColor: "transparent"
+                  quality: 100
+                )
+              }
+            }
+            active
+            tags
+            link
+          }
+          body
+          slug
         }
       }
     }

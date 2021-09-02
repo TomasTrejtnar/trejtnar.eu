@@ -1,6 +1,6 @@
-import { Link } from "gatsby-plugin-react-i18next";
 import React from "react";
-import { useTranslation } from "react-i18next";
+import { Link, useTranslation } from "gatsby-plugin-react-i18next";
+
 import "./footer.scss";
 
 const Footer: React.FC = () => {

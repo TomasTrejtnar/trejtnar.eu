@@ -1,0 +1,45 @@
+---
+title: "Web Tanečního studia Kamily Hlaváčikové - v1"
+year: 2015
+lang: "cs"
+active: false
+wip: false
+logo: "../../images/tskh-legacy-logo.png"
+tags:
+  - "Web"
+  - "PHP"
+---
+
+V té době jsem byl v Tanečním studiu již pátým rokem a jako člověk znalý
+informačních technologií jsem byl pověřen správou webových stránek, které
+tehdy běžely na jedné z šablon na Webnode. Všechno to začalo tím, že jsem tuto
+šablonu upravoval tak, aby její barevné schéma odpovídalo barvám vizuální
+identity Tanečního studia. To nebyl příliš problém - CSS jsem tehdy relativně
+obstojně ovládal již zhruba dva roky.
+
+Při procházení obsahu jsem ale narazil na něco, co od té doby neodpustím
+WYSIWYG editorům: dávají uživatelům příliš mnoho svobody. Nadpisy jaksi měly
+čtyři různé odstíny červené (bez jakéhokoliv systému) na stránkách v kombinaci
+zelené a fialové barvy. Tehdy jsem si dal za cíl vytvořit celé nové webové
+stránky, které budou chytřejší než ty stávající a zároveň neumožní takováto
+zvěrstva.
+
+S psaním a hostováním dynamických webových stránek jsem neměl absolutně žádnou
+zkušenost, vydal jsem se tedy na průzkum a zjistil jsem, že nejlevnější
+možností je napsat webové stránky v PHP a hostovat je na některém z cenově
+velmi dostupných PHP/MySQL webhostingů. Prázdniny 2015 jsem tedy strávil
+učením se PHP a tvorbou první verze nových webových stránek Tanečního studia
+Kamily Hlaváčikové.
+
+Přesně jak jsem chtěl, tyto stránky nedávaly možnost upravovat obsah společně
+se stylem; administrace obsahu byla spíše administrací vlastností objektů a
+veškeré stylování bylo předpřipravené. Zde jsem také objevil knihovnu
+komponent <a href="https://getmdl.io" target="_blank" rel="noopener noreferrer">
+Material Design Lite</a>, která pomohla výrazně zrychlit vývoj front-endu a naučila mne základy
+responsivního designu webových stránek.
+
+Přestože jsem na tento projekt byl pyšný, velmi rychle jsem začal náhodně
+narážet na informace, že velkou řadu operací na back-endu dělám špatně &ndash;
+hesla uchovávaná bez šifrování, zranitelnost vůči SQL-injection útokům,
+nepřehledná struktura kódu &ndash; to vše vedlo k tomu, že zhruba půl roku po
+nasazení tohoto webu do provozu jsem začal pracovat na [druhé verzi](#2016-tskhv2).
