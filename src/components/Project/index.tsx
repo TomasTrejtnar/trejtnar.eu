@@ -35,13 +35,14 @@ const Project: React.FC<ProjectProps> = ({
 }) => {
   const { t } = useTranslation();
   const slugName = /\/(.*)\.\w+$/.exec(slug)[1];
-  const { hash } = window.location;
   const anchor = useRef<HTMLDivElement>();
   useLayoutEffect(() => {
-    !preview &&
-      hash === `#${slugName}` &&
-      window.scrollTo(0, anchor.current.offsetTop - 80);
-  }, [hash, slugName, anchor, preview]);
+    if (typeof window !== "undefined") {
+      !preview &&
+        window.location.hash === `#${slugName}` &&
+        window.scrollTo(0, anchor.current.offsetTop - 80);
+    }
+  }, [slugName, anchor, preview]);
   return (
     <div
       className={

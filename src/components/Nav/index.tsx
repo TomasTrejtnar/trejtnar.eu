@@ -29,21 +29,23 @@ const Languages: { code: string; name: string; country: string }[] = [
 const Nav: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   useLayoutEffect(() => {
-    const listener = (evt: Event) =>
-      setScrolled((evt.currentTarget as Window).scrollY > 48);
-    window.addEventListener("scroll", listener);
-    window.addEventListener("load", listener);
-    return () => {
-      window.removeEventListener("scroll", listener);
-      window.removeEventListener("load", listener);
-    };
-  }, [window, setScrolled]);
+    if (typeof window !== "undefined") {
+      const listener = (evt: Event) =>
+        setScrolled((evt.currentTarget as Window).scrollY > 48);
+      window.addEventListener("scroll", listener);
+      window.addEventListener("load", listener);
+      return () => {
+        window.removeEventListener("scroll", listener);
+        window.removeEventListener("load", listener);
+      };
+    }
+  }, [setScrolled]);
   const { t, i18n } = useTranslation();
   return (
     <nav className={"mc-nav" + (scrolled ? " mc-nav--scrolled" : "")}>
       <button
         className="mc-nav__item"
-        onClick={() => window.scrollTo(0, 0)}
+        onClick={() => typeof window !== "undefined" && window.scrollTo(0, 0)}
         title={t("nav.up")}
       >
         <FontAwesomeIcon icon={faArrowUp} />

@@ -18,7 +18,11 @@ const NotFoundPage = () => {
       <Link to="/">{t("404.back")}</Link>
       <div>
         {t("404.old")}
-        <a href={`https://old.mciesla.cz${window.location.pathname}`}>
+        <a
+          href={`https://old.mciesla.cz${
+            typeof window === "undefined" ? "/" : window.location.pathname
+          }`}
+        >
           old.mciesla.cz
         </a>
       </div>
