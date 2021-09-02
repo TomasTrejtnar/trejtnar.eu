@@ -1,0 +1,30 @@
+name: Deploy to production
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        uses: CultureHQ/actions-yarn@v1.0.1
+        with:
+          args: install
+      - name: Build
+        uses: CultureHQ/actions-yarn@v1.0.1
+        with:
+          args: build
+      - name: Deploy
+        uses: sand4rt/ftp-deployer@v1.3
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local_folder: public
+          cleanup: false
