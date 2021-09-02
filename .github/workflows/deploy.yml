@@ -11,15 +11,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Yarn
+        uses: mskelton/setup-yarn@v1.0.1
       - uses: actions/checkout@v2
       - name: Install dependencies
-        uses: CultureHQ/actions-yarn@v1.0.1
-        with:
-          args: install
+        run: yarn install
       - name: Build
-        uses: CultureHQ/actions-yarn@v1.0.1
-        with:
-          args: build
+        run: yarn build
       - name: Deploy
         uses: sand4rt/ftp-deployer@v1.3
         with:
