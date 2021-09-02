@@ -13,7 +13,6 @@ jobs:
     steps:
       - name: Setup Yarn
         uses: mskelton/setup-yarn@v1.0.1
-      - uses: actions/checkout@v2
       - name: Install dependencies
         run: yarn install
       - name: Build
@@ -25,4 +24,4 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           local_folder: public
-          cleanup: false
+          cleanup: true
