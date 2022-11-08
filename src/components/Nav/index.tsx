@@ -1,12 +1,17 @@
+import "./nav.scss";
+
+import { Link, useTranslation } from "gatsby-plugin-react-i18next";
+import React, { useState } from "react";
+import {
+  faGithub,
+  faMastodon,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+
+import Country from "flagit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import React, { useState } from "react";
 import { useLayoutEffect } from "react";
-import { Link, useTranslation } from "gatsby-plugin-react-i18next";
-import Country from "flagit";
-
-import "./nav.scss";
-import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const Languages: { code: string; name: string; country: string }[] = [
   {
@@ -58,6 +63,15 @@ const Nav: React.FC = () => {
         title={t("nav.twitter")}
       >
         <FontAwesomeIcon icon={faTwitter} />
+      </a>
+      <a
+        href="https://mstdn.social/@mciesla"
+        className="mc-nav__item"
+        rel="me"
+        target="_blank"
+        title={t("nav.mastodon")}
+      >
+        <FontAwesomeIcon icon={faMastodon} />
       </a>
       <a
         className="mc-nav__item"

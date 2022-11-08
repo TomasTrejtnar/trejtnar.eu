@@ -41,7 +41,8 @@
     "projects": "Projekty",
     "up": "Nahoru",
     "github": "GitHub profil",
-    "twitter": "Twitter profil"
+    "twitter": "Twitter profil",
+    "mastodon": "Mastodon profil"
   },
   "body": {
     "about": "O mně",

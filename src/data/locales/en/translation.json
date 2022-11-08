@@ -41,7 +41,8 @@
     "projects": "Projects",
     "up": "Back To Top",
     "github": "GitHub Profile",
-    "twitter": "Twitter Page"
+    "twitter": "Twitter Page",
+    "mastodon": "Mastodon Profile"
   },
   "body": {
     "about": "About me",
