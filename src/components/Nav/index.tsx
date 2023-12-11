@@ -57,7 +57,7 @@ const Nav: React.FC = () => {
       </button>
       <a
         className="mc-nav__item"
-        href="https://twitter.com/ciesla_michal"
+        href="https://twitter.com/TTrejtnar"
         target="_blank"
         rel="noopener noreferrer"
         title={t("nav.twitter")}
@@ -65,7 +65,7 @@ const Nav: React.FC = () => {
         <FontAwesomeIcon icon={faTwitter} />
       </a>
       <a
-        href="https://mstdn.social/@mciesla"
+        href="https://mstdn.social/@trejtnar"
         className="mc-nav__item"
         rel="me"
         target="_blank"
@@ -75,7 +75,7 @@ const Nav: React.FC = () => {
       </a>
       <a
         className="mc-nav__item"
-        href="https://github.com/Akimayo"
+        href="https://github.com/TomasTrejtnar"
         target="_blank"
         rel="noopener noreferrer"
         title={t("nav.github")}

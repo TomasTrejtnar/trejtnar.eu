@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Michal Ciesla",
+    title: "Tomáš Trejtnar",
     siteUrl: "https://mciesla.cz/"
   },
   plugins: [

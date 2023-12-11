@@ -1,7 +1,7 @@
 {
   "title": {
     "about": {
-      "text": "Student | Developer | IT guy | Science, technology and space enthusiast | Dancer and lecturer",
+      "text": "Student | 3D printing boi | Boy Scout Leader | Electronics enthusiast | Proto-green-thumb",
       "languages": {
         "cs": {
           "name": "Czech",
@@ -13,21 +13,9 @@
         }
       },
       "frameworks": {
-        "net": {
-          "name": ".NET",
-          "level": "primarily"
-        },
-        "react": {
-          "name": "React",
-          "level": "primarily"
-        },
-        "php": {
-          "name": "PHP",
-          "level": "a lot"
-        },
-        "java": {
-          "name": "Java",
-          "level": "in self-defense"
+        "python": {
+          "name": "Python",
+          "level": "lvl. -1"
         },
         "etc": "and more"
       }
@@ -38,7 +26,7 @@
   },
   "nav": {
     "portfolio": "Home",
-    "projects": "Projects",
+    "projects": "Portfolio",
     "up": "Back To Top",
     "github": "GitHub Profile",
     "twitter": "Twitter Page",

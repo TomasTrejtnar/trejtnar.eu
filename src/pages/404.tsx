@@ -12,7 +12,7 @@ const NotFoundPage = () => {
   return (
     <Layout>
       <div className="mc-top-wrapper">
-        <h1>Michal Ciesla</h1>
+        <h1>Tomáš Trejtnar</h1>
         <h2 className=".mc-name">{t("404.notFound")}</h2>
       </div>
       <Link to="/">{t("404.back")}</Link>

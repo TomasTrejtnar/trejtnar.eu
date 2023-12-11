@@ -1,7 +1,7 @@
 {
   "title": {
     "about": {
-      "text": "Student | Vývojář | Ajťák | Nadšenec do vědy, technologií a vesmíru | Tanečník a lektor",
+      "text": "Student | 3D tiskař | Skaut | Nadšenec do elektroniky | Proto-zahradník",
       "languages": {
         "cs": {
           "name": "čeština",
@@ -13,21 +13,9 @@
         }
       },
       "frameworks": {
-        "net": {
-          "name": ".NET",
-          "level": "primárně"
-        },
-        "react": {
-          "name": "React",
-          "level": "primárně"
-        },
-        "php": {
-          "name": "PHP",
-          "level": "hodně"
-        },
-        "java": {
-          "name": "Java",
-          "level": "v sebeobraně"
+        "python": {
+          "name": "Python",
+          "level": "lvl. -1"
         },
         "etc": "a další"
       }
@@ -38,7 +26,7 @@
   },
   "nav": {
     "portfolio": "Domů",
-    "projects": "Projekty",
+    "projects": "Portfolio",
     "up": "Nahoru",
     "github": "GitHub profil",
     "twitter": "Twitter profil",

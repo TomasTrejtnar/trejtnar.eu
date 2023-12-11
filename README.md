@@ -1,4 +1,4 @@
-# Michal Ciesla
+# Tomáš Trejtnar
 This repository contains the code which builds the [mciesla.cz](https://mciesla.cz) website.
 
 It is a personal website, a portfolio of sorts, built using [Gatsby](https://gatsbyjs.com).

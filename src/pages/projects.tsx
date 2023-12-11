@@ -39,7 +39,7 @@ const Projects: React.FC<ProjectsPageData> = ({ data }) => {
         <h2 className="mc-name">{t("nav.projects")}</h2>
         <div className="mc-about">
           <h1>
-            <Link to="/">Michal Ciesla</Link>
+            <Link to="/">Tomáš Trejtnar</Link>
           </h1>
           <p>{t("projects.sub")}</p>
         </div>

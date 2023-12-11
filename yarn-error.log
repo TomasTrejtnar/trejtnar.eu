@@ -21,8 +21,8 @@ npm manifest:
     "name": "michal-ciesla",
     "version": "1.0.0",
     "private": true,
-    "description": "Michal Ciesla",
-    "author": "Michal Ciesla",
+    "description": "Tomáš Trejtnar",
+    "author": "Tomáš Trejtnar",
     "keywords": [
       "gatsby"
     ],

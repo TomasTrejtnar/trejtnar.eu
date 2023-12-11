@@ -52,7 +52,7 @@ const IndexPortfolio: React.FC<IndexPortfolioProps> = ({
           </p>
           <p>
             <FontAwesomeIcon icon={faCode} />
-            {["net", "react", "php", "java"].map((lang, i) => (
+            {["python"].map((lang, i) => (
               <React.Fragment key={i}>
                 {i > 0 && ", "}
                 <span className="mc-lang">
@@ -66,17 +66,17 @@ const IndexPortfolio: React.FC<IndexPortfolioProps> = ({
                 </span>
               </React.Fragment>
             ))}
-            {" " + t("title.about.frameworks.etc")}
+            {/*" " + t("title.about.frameworks.etc")*/}
           </p>
         </div>
         <div className="mc-name--grid">
           <h1 className="mc-name">
-            <span>Michal</span>
-            <span>Ciesla</span>
+            <span>Tomáš</span>
+            <span>Trejtnar</span>
           </h1>
           <div className="mc-name mc-name--artery-break">
-            <span>Michal</span>
-            <span>Ciesla</span>
+            <span>Tomáš</span>
+            <span>Trejtnar</span>
           </div>
         </div>
       </div>
